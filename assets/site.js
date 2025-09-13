@@ -1,36 +1,45 @@
-/* Dil anahtarı: bulunduğun dizine göre diğer dile götürür */
-(function(){
-  const seg = (location.pathname.split('/')[1]||'en').toLowerCase();
-  const other = seg === 'en' ? 'tr' : 'en';
-  document.querySelectorAll('[data-lang-switch]').forEach(a=>{
-    a.textContent = other.toUpperCase();
-    a.href = `/${other}/`;
-  });
+/* Aliye — Visual portfolio site helpers (V7.1 clean) */
+
+/* basit yardımcılar */
+const $ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+
+/* Scroll-reveal */
+(() => {
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e => { if (e.isIntersecting) {
+      e.target.classList.add('in'); io.unobserve(e.target);
+    }});
+  }, {rootMargin:'0px 0px -10% 0px', threshold:0.15});
+  $('.rv').forEach(el => io.observe(el));
 })();
 
-/* Scroll reveal */
-(function(){
-  const els = document.querySelectorAll('.rv');
-  if(!('IntersectionObserver' in window)){ els.forEach(e=>e.classList.add('in')); return; }
-  const io = new IntersectionObserver(es=>{
-    es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-  },{threshold:.15});
-  els.forEach(e=>io.observe(e));
-})();
-
-/* Basit parallax: data-parallax="0.6" gibi */
-// istek: parallax gücü biraz daha yüksek (56→60 ~= 0.6)
-(function(){
-  const nodes = Array.from(document.querySelectorAll('[data-parallax]'));
-  if(!nodes.length) return;
-  const speed = el => Number(el.getAttribute('data-parallax')||'0.6');
-  const run = ()=>{
-    const sy = window.scrollY;
-    nodes.forEach(el=>{
-      const rect = el.getBoundingClientRect();
-      const amt = (sy + rect.top) * -0.08 * speed(el);
-      el.style.transform = `translateY(${amt.toFixed(1)}px)`;
+/* Parallax (hafif) */
+(() => {
+  const els = $('[data-parallax]');
+  if (!els.length) return;
+  const loop = () => {
+    const h = window.innerHeight;
+    els.forEach(el=>{
+      const k = Number(el.dataset.parallax || 0.6); /* 0.6 default */
+      const r = el.getBoundingClientRect();
+      const y = (r.top - h*0.5) * (k*0.15);          /* yumuşak */
+      el.style.transform = `translateY(${y.toFixed(1)}px)`;
     });
+    requestAnimationFrame(loop);
   };
-  run(); window.addEventListener('scroll', run, {passive:true});
+  requestAnimationFrame(loop);
+})();
+
+/* Dil anahtarı: /en/ <-> /tr/ */
+(() => {
+  const a = document.querySelector('[data-lang-switch]');
+  if (!a) return;
+  const p = location.pathname;
+  const isTR = p.startsWith('/tr/');
+  a.textContent = isTR ? 'EN' : 'TR';
+  a.href = isTR ? p.replace('/tr/','/en/') : p.replace('/en/','/tr/');
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    location.href = a.href;
+  });
 })();
