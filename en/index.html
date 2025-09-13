@@ -1,125 +1,69 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Aliye Arıcan — Portfolio</title>
-
-  <!-- SEO / social -->
-  <link rel="canonical" href="https://aliyearican.tr/en/">
-  <link rel="alternate" href="https://aliyearican.tr/en/" hreflang="en">
-  <link rel="alternate" href="https://aliyearican.tr/tr/" hreflang="tr">
-  <meta name="description" content="Aliye Arıcan — flat, crisp, minimal portfolio.">
-  <meta property="og:title" content="Aliye Arıcan — Portfolio">
-  <meta property="og:description" content="Minimal, sharp, editorial+air.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://aliyearican.tr/en/">
-  <meta property="og:image" content="https://aliyearican.tr/assets/cover.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <link rel="stylesheet" href="/assets/site.css">
-  <script defer src="/assets/site.js"></script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aliye Arıcan</title>
+<link rel="canonical" href="https://aliyearican.tr/en/">
+<link rel="stylesheet" href="/assets/site.css"><script defer src="/assets/site.js"></script>
+<meta name="description" content="Aliye Arıcan — visual-led, minimal site.">
 </head>
 <body>
+  <div class="lang"><a data-lang-switch aria-label="Switch language"></a></div>
+
   <header class="header">
-    <div class="container">
+    <div class="wrap">
       <div class="brand">Aliye Arıcan</div>
+      <!-- mobil için menü burada da görünsün -->
+      <nav class="menu">
+        <a href="/en/alarch/" data-page="/en/alarch">ALARCH</a>
+        <a href="/en/alart/"  data-page="/en/alart">ALART</a>
+        <a href="/en/alog/"   data-page="/en/alog">ALOG</a>
+        <a href="/en/alo/"    data-page="/en/alo">ALO</a>
+      </nav>
     </div>
   </header>
 
-  <nav class="lang">
-    <a data-lang-switch aria-label="Switch language"></a>
+  <!-- sağ sabit menü (masaüstü) -->
+  <nav class="menu" aria-label="Sections">
+    <a href="/en/alarch/" data-page="/en/alarch">ALARCH</a>
+    <a href="/en/alart/"  data-page="/en/alart">ALART</a>
+    <a href="/en/alog/"   data-page="/en/alog">ALOG</a>
+    <a href="/en/alo/"    data-page="/en/alo">ALO</a>
   </nav>
 
   <main>
-    <!-- Hero -->
     <section class="container hero rv" data-parallax="0.6">
-      <span class="badge">T01</span>
-      <h1>Personal portfolio — <span class="accent">flat, crisp edges, minimal.</span></h1>
-      <p>This is a visual-first, editor-friendly static site. Texts and images are placeholders — replace them later from the files easily.</p>
+      <h1>Aliye Arıcan — <span class="accent">flat, crisp edges, minimal</span></h1>
+      <p class="note">Visual-led; scope remains open and evolves with the work. Texts & images are placeholders—you can swap them anytime.</p>
     </section>
 
-    <!-- Work grid -->
+    <!-- küçük vitrin -->
     <section class="container">
       <div class="grid">
-
-        <!-- Card 1 -->
         <article class="card rv">
-          <a href="#">
-            <figure class="image">
-              <img width="1200" height="800" loading="lazy"
-                   alt="Western Approaches"
-                   src="data:image/svg+xml;utf8,<?xml version='1.0' encoding='UTF-8'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'><rect width='1200' height='800' fill='%23e5e5e5'/></svg>">
-            </figure>
-            <h3>Western Approaches</h3>
-            <small>Graphic & Brand • 2025</small>
+          <a href="/en/alarch/">
+            <figure class="image"><img alt="ALARCH cover" width="1200" height="800" loading="lazy"
+              src="data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'><rect width='1200' height='800' fill='%23e5e5e5'/><text x='50' y='120' font-size='64' fill='%23888'>Architecture</text></svg>"></figure>
+            <h3>ALARCH</h3><small>Projects • 3:2 grid</small>
           </a>
         </article>
-
-        <!-- Card 2 -->
         <article class="card rv">
-          <a href="#">
-            <figure class="image">
-              <img width="1200" height="800" loading="lazy" alt="Flint Glass Works"
-                   src="data:image/svg+xml;utf8,<?xml version='1.0' encoding='UTF-8'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'><rect width='1200' height='800' fill='%23e5e5e5'/></svg>">
-            </figure>
-            <h3>Flint Glass Works</h3>
-            <small>Interior Design • 2025</small>
+          <a href="/en/alart/">
+            <figure class="image"><img alt="ALART cover" width="1200" height="800" loading="lazy"
+              src="data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'><rect width='1200' height='800' fill='%23e5e5e5'/><text x='50' y='120' font-size='64' fill='%23888'>Art / Editorial</text></svg>"></figure>
+            <h3>ALART</h3><small>Editorial • two-column</small>
           </a>
         </article>
-
-        <!-- Card 3 -->
         <article class="card rv">
-          <a href="#">
-            <figure class="image">
-              <img width="1200" height="800" loading="lazy" alt="Colony"
-                   src="data:image/svg+xml;utf8,<?xml version='1.0' encoding='UTF-8'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'><rect width='1200' height='800' fill='%23e5e5e5'/></svg>">
-            </figure>
-            <h3>Colony</h3>
-            <small>Graphic & Brand • 2024</small>
+          <a href="/en/alog/">
+            <figure class="image"><img alt="ALOG cover" width="1200" height="800" loading="lazy"
+              src="data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'><rect width='1200' height='800' fill='%23e5e5e5'/><text x='50' y='120' font-size='64' fill='%23888'>Journal</text></svg>"></figure>
+            <h3>ALOG</h3><small>Notes • work-in-progress</small>
           </a>
         </article>
-
-        <!-- Card 4 -->
-        <article class="card rv">
-          <a href="#">
-            <figure class="image">
-              <img width="1200" height="800" loading="lazy" alt="Mono"
-                   src="data:image/svg+xml;utf8,<?xml version='1.0' encoding='UTF-8'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'><rect width='1200' height='800' fill='%23e5e5e5'/></svg>">
-            </figure>
-            <h3>Mono</h3>
-            <small>Editorial • coming soon</small>
-          </a>
-        </article>
-
-        <!-- Card 5 -->
-        <article class="card rv">
-          <a href="#">
-            <figure class="image">
-              <img width="1200" height="800" loading="lazy" alt="Brutal"
-                   src="data:image/svg+xml;utf8,<?xml version='1.0' encoding='UTF-8'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'><rect width='1200' height='800' fill='%23e5e5e5'/></svg>">
-            </figure>
-            <h3>Brutal</h3>
-            <small>Interior • updating</small>
-          </a>
-        </article>
-
-        <!-- Card 6 -->
-        <article class="card rv">
-          <a href="#">
-            <figure class="image">
-              <img width="1200" height="800" loading="lazy" alt="Glass"
-                   src="data:image/svg+xml;utf8,<?xml version='1.0' encoding='UTF-8'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'><rect width='1200' height='800' fill='%23e5e5e5'/></svg>">
-            </figure>
-            <h3>Glass</h3>
-            <small>Graphic & Brand • 2024</small>
-          </a>
-        </article>
-
       </div>
     </section>
 
-    <!-- Contact -->
     <section class="container rv">
       <h2>Contact</h2>
       <p>Mail: <a href="mailto:hello@aliyearican.com">hello@aliyearican.com</a> (placeholder)</p>
@@ -127,8 +71,6 @@
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container">© 2025 Aliye Arıcan — minimal, sharp, editorial+air.</div>
-  </footer>
+  <footer class="footer"><div class="container">© 2025 Aliye Arıcan — minimal, sharp, editorial+air.</div></footer>
 </body>
 </html>
