@@ -1,97 +1,126 @@
 <!doctype html>
 <html lang="tr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Aliye Arıcan — Portfolyo</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Aliye Arıcan — Portfolyo</title>
+
+  <!-- SEO / social -->
+  <link rel="canonical" href="https://aliyearican.tr/tr/">
+  <link rel="alternate" href="https://aliyearican.tr/en/" hreflang="en">
+  <link rel="alternate" href="https://aliyearican.tr/tr/" hreflang="tr">
+  <meta name="description" content="Aliye Arıcan — düz/flat, keskin köşeler, minimal portfolyo.">
+  <meta property="og:title" content="Aliye Arıcan — Portfolyo">
+  <meta property="og:description" content="Minimal, keskin, editorial+air.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aliyearican.tr/tr/">
+  <meta property="og:image" content="https://aliyearican.tr/assets/cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="/assets/site.css">
+  <script defer src="/assets/site.js"></script>
 </head>
 <body>
-  <header class="top">
-    <div class="brand">Aliye Arıcan</div>
-    <nav class="lang">
-      <a href="/tr/" class="active" aria-label="Türkçe">TR</a>
-      <a href="/en/" aria-label="English">EN</a>
-    </nav>
+  <header class="header">
+    <div class="container">
+      <div class="brand">Aliye Arıcan</div>
+    </div>
   </header>
 
-  <main class="wrapper">
+  <nav class="lang">
+    <a data-lang-switch aria-label="Dili değiştir"></a>
+  </nav>
 
-    <section class="hero">
+  <main>
+    <!-- Hero -->
+    <section class="container hero rv" data-parallax="0.6">
       <span class="badge">T01</span>
-      <h1 class="reveal">Kişisel portföy <span class="accent">— düz/flat, keskin köşeler, minimal.</span></h1>
-      <p class="reveal">Bu sayfa görsel odaklı, düzenlemesi kolay bir statik sitedir. Metinler ve görseller şimdilik yer tutucudur — daha sonra dosyada kolayca değiştirebilirsin.</p>
+      <h1>Kişisel portfolyo — <span class="accent">düz/flat, keskin köşeler, minimal.</span></h1>
+      <p>Bu site görsel odaklı ve düzenlemeye elverişlidir. Metin ve görseller şimdilik yer tutucu; dosyalar üzerinden kolayca değiştirebilirsiniz.</p>
     </section>
 
-    <div class="divider"></div>
+    <!-- İşler -->
+    <section class="container">
+      <div class="grid">
 
-    <section>
-      <div style="display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:start">
-        <div class="vh">İŞLER</div>
-        <div>
-          <div class="grid">
-            <article class="card reveal">
-              <div class="ratio-3x2">
-                <img src="https://picsum.photos/1200/800?random=21" alt="Proje görseli" data-parallax="60">
-              </div>
-              <h3>Western Approaches</h3>
-              <div class="meta">Grafik & Marka • 2025</div>
-            </article>
-            <article class="card reveal">
-              <div class="ratio-3x2">
-                <img src="https://picsum.photos/1200/800?random=22" alt="Proje görseli" data-parallax="48">
-              </div>
-              <h3>Flint Glass Works</h3>
-              <div class="meta">İç Mekân • 2025</div>
-            </article>
-            <article class="card reveal">
-              <div class="ratio-3x2">
-                <img src="https://picsum.photos/1200/800?random=23" alt="Proje görseli" data-parallax="56">
-              </div>
-              <h3>Colony</h3>
-              <div class="meta">Grafik & Marka • 2024</div>
-            </article>
-            <article class="card reveal">
-              <div class="ratio-3x2">
-                <img src="https://picsum.photos/1200/800?random=24" alt="Proje görseli" data-parallax="64">
-              </div>
-              <h3>Mono</h3>
-              <div class="meta">Editoryal • yakında</div>
-            </article>
-            <article class="card reveal">
-              <div class="ratio-3x2">
-                <img src="https://picsum.photos/1200/800?random=25" alt="Proje görseli" data-parallax="52">
-              </div>
-              <h3>Brutal</h3>
-              <div class="meta">İç mekân • düzenleniyor</div>
-            </article>
-            <article class="card reveal">
-              <div class="ratio-3x2">
-                <img src="https://picsum.photos/1200/800?random=26" alt="Proje görseli" data-parallax="60">
-              </div>
-              <h3>Glass</h3>
-              <div class="meta">Grafik & Marka • 2024</div>
-            </article>
-          </div>
-        </div>
+        <article class="card rv">
+          <a href="#">
+            <figure class="image">
+              <img width="1200" height="800" loading="lazy" alt="Western Approaches"
+                   src="data:image/svg+xml;utf8,<?xml version='1.0' encoding='UTF-8'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'><rect width='1200' height='800' fill='%23e5e5e5'/></svg>">
+            </figure>
+            <h3>Western Approaches</h3>
+            <small>Grafik & Marka • 2025</small>
+          </a>
+        </article>
+
+        <article class="card rv">
+          <a href="#">
+            <figure class="image">
+              <img width="1200" height="800" loading="lazy" alt="Flint Glass Works"
+                   src="data:image/svg+xml;utf8,<?xml version='1.0' encoding='UTF-8'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'><rect width='1200' height='800' fill='%23e5e5e5'/></svg>">
+            </figure>
+            <h3>Flint Glass Works</h3>
+            <small>İç Mekân Tasarım • 2025</small>
+          </a>
+        </article>
+
+        <article class="card rv">
+          <a href="#">
+            <figure class="image">
+              <img width="1200" height="800" loading="lazy" alt="Colony"
+                   src="data:image/svg+xml;utf8,<?xml version='1.0' encoding='UTF-8'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'><rect width='1200' height='800' fill='%23e5e5e5'/></svg>">
+            </figure>
+            <h3>Colony</h3>
+            <small>Grafik & Marka • 2024</small>
+          </a>
+        </article>
+
+        <article class="card rv">
+          <a href="#">
+            <figure class="image">
+              <img width="1200" height="800" loading="lazy" alt="Mono"
+                   src="data:image/svg+xml;utf8,<?xml version='1.0' encoding='UTF-8'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'><rect width='1200' height='800' fill='%23e5e5e5'/></svg>">
+            </figure>
+            <h3>Mono</h3>
+            <small>Editorial • yakında</small>
+          </a>
+        </article>
+
+        <article class="card rv">
+          <a href="#">
+            <figure class="image">
+              <img width="1200" height="800" loading="lazy" alt="Brutal"
+                   src="data:image/svg+xml;utf8,<?xml version='1.0' encoding='UTF-8'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'><rect width='1200' height='800' fill='%23e5e5e5'/></svg>">
+            </figure>
+            <h3>Brutal</h3>
+            <small>İç Mekân • güncelleniyor</small>
+          </a>
+        </article>
+
+        <article class="card rv">
+          <a href="#">
+            <figure class="image">
+              <img width="1200" height="800" loading="lazy" alt="Glass"
+                   src="data:image/svg+xml;utf8,<?xml version='1.0' encoding='UTF-8'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'><rect width='1200' height='800' fill='%23e5e5e5'/></svg>">
+            </figure>
+            <h3>Glass</h3>
+            <small>Grafik & Marka • 2024</small>
+          </a>
+        </article>
+
       </div>
     </section>
 
-    <div class="divider"></div>
-
-    <section class="reveal">
+    <section class="container rv">
       <h2>İletişim</h2>
-      <p>E-posta: <a href="mailto:merhaba@aliyearican.com">merhaba@aliyearican.com</a> (yer tutucu)</p>
+      <p>Mail: <a href="mailto:hello@aliyearican.com">hello@aliyearican.com</a> (placeholder)</p>
       <p>Instagram / LinkedIn: yakında</p>
     </section>
-
-    <footer class="footer">
-      © 2025 Aliye Arıcan — minimal, keskin, editorial+air.  <span class="accent">•</span>  Tüm hakları saklıdır.
-    </footer>
   </main>
 
-  <script src="/assets/app.js"></script>
+  <footer class="footer">
+    <div class="container">© 2025 Aliye Arıcan — minimal, keskin, editorial+air.</div>
+  </footer>
 </body>
 </html>
