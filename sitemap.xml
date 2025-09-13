@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>https://www.aliyearican.com/</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://www.aliyearican.com/tr/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.aliyearican.com/en/index.html"/>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.aliyearican.tr/en/</loc></url>
+  <url><loc>https://www.aliyearican.tr/tr/</loc></url>
 </urlset>
