@@ -1,25 +1,97 @@
 <!doctype html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aliye Arıcan — Portfolyo (Başlangıç)</title>
-  <style>
-    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
-    header { position: sticky; top: 0; display:flex; gap:16px; align-items:center; justify-content:space-between; padding:14px 20px; border-bottom:1px solid #eee; background:#fff; }
-    main { max-width: 1100px; margin: 0 auto; padding: 28px; }
-    a { color: inherit; text-decoration: none; border-bottom:1px solid #111; }
-    .muted { opacity:.7 }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aliye Arıcan — Portfolyo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-  <header>
-    <strong>Aliye Arıcan</strong>
-    <nav class="muted"><a href="../en/index.html">EN</a></nav>
+  <header class="top">
+    <div class="brand">Aliye Arıcan</div>
+    <nav class="lang">
+      <a href="/tr/" class="active" aria-label="Türkçe">TR</a>
+      <a href="/en/" aria-label="English">EN</a>
+    </nav>
   </header>
-  <main>
-    <h1>Portfolyo — Başlangıç</h1>
-    <p class="muted">GitHub Pages kurulumu için geçici yer tutucudur. Daha sonra Kanvas’tan aldığın export ile değiştireceğiz.</p>
+
+  <main class="wrapper">
+
+    <section class="hero">
+      <span class="badge">T01</span>
+      <h1 class="reveal">Kişisel portföy <span class="accent">— düz/flat, keskin köşeler, minimal.</span></h1>
+      <p class="reveal">Bu sayfa görsel odaklı, düzenlemesi kolay bir statik sitedir. Metinler ve görseller şimdilik yer tutucudur — daha sonra dosyada kolayca değiştirebilirsin.</p>
+    </section>
+
+    <div class="divider"></div>
+
+    <section>
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:start">
+        <div class="vh">İŞLER</div>
+        <div>
+          <div class="grid">
+            <article class="card reveal">
+              <div class="ratio-3x2">
+                <img src="https://picsum.photos/1200/800?random=21" alt="Proje görseli" data-parallax="60">
+              </div>
+              <h3>Western Approaches</h3>
+              <div class="meta">Grafik & Marka • 2025</div>
+            </article>
+            <article class="card reveal">
+              <div class="ratio-3x2">
+                <img src="https://picsum.photos/1200/800?random=22" alt="Proje görseli" data-parallax="48">
+              </div>
+              <h3>Flint Glass Works</h3>
+              <div class="meta">İç Mekân • 2025</div>
+            </article>
+            <article class="card reveal">
+              <div class="ratio-3x2">
+                <img src="https://picsum.photos/1200/800?random=23" alt="Proje görseli" data-parallax="56">
+              </div>
+              <h3>Colony</h3>
+              <div class="meta">Grafik & Marka • 2024</div>
+            </article>
+            <article class="card reveal">
+              <div class="ratio-3x2">
+                <img src="https://picsum.photos/1200/800?random=24" alt="Proje görseli" data-parallax="64">
+              </div>
+              <h3>Mono</h3>
+              <div class="meta">Editoryal • yakında</div>
+            </article>
+            <article class="card reveal">
+              <div class="ratio-3x2">
+                <img src="https://picsum.photos/1200/800?random=25" alt="Proje görseli" data-parallax="52">
+              </div>
+              <h3>Brutal</h3>
+              <div class="meta">İç mekân • düzenleniyor</div>
+            </article>
+            <article class="card reveal">
+              <div class="ratio-3x2">
+                <img src="https://picsum.photos/1200/800?random=26" alt="Proje görseli" data-parallax="60">
+              </div>
+              <h3>Glass</h3>
+              <div class="meta">Grafik & Marka • 2024</div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="reveal">
+      <h2>İletişim</h2>
+      <p>E-posta: <a href="mailto:merhaba@aliyearican.com">merhaba@aliyearican.com</a> (yer tutucu)</p>
+      <p>Instagram / LinkedIn: yakında</p>
+    </section>
+
+    <footer class="footer">
+      © 2025 Aliye Arıcan — minimal, keskin, editorial+air.  <span class="accent">•</span>  Tüm hakları saklıdır.
+    </footer>
   </main>
+
+  <script src="/assets/app.js"></script>
 </body>
 </html>
