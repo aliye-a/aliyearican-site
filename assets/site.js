@@ -19,7 +19,7 @@
   function langLink(target){ return (target==='tr'? '/tr':'') + '/' + section + '/'; }
 
   // Fetch content.json (no-cache)
-  fetch('/assets/content.json?ts=' + Date.now())
+  fetch('assets/content.json?ts=' + Date.now())
     .then(r=>r.json()).then(data=>{
       // site-level
       const site = data._site || {};
