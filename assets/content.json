@@ -1,0 +1,24 @@
+{
+  "_site": {
+    "brand": "AL",
+    "title": "Aliye Arıcan",
+    "note_en": "Year — short caption",
+    "note_tr": "Yıl — kısa not",
+    "quick_links": [
+      { "label": "Contact", "href": "#" }
+    ],
+    "ad": { "enabled": false, "html": "" }
+  },
+  "en": {
+    "alarch": { "title": "Architecture", "subtitle": "Selected works", "text": "", "projects": [] },
+    "alart":  { "title": "Art",           "subtitle": "",               "text": "", "projects": [] },
+    "allog":  { "title": "Log",           "subtitle": "Notes & process","text": "", "projects": [] },
+    "alo":    { "title": "Alo",           "subtitle": "Contact",        "text": "<p>Email: xxx@gmail.com</p>", "projects": [] }
+  },
+  "tr": {
+    "alarch": { "title": "Mimarlık", "subtitle": "Seçki", "text": "", "projects": [] },
+    "alart":  { "title": "Sanat",    "subtitle": "",      "text": "", "projects": [] },
+    "allog":  { "title": "Günlük",   "subtitle": "Notlar","text": "", "projects": [] },
+    "alo":    { "title": "Alo",      "subtitle": "İletişim","text": "<p>E-posta: xxx@gmail.com</p>", "projects": [] }
+  }
+}
