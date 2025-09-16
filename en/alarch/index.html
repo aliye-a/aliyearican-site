@@ -1,44 +1,30 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ALARCH — Aliye Arıcan</title>
-<link rel="stylesheet" href="/assets/site.css"><script defer src="/assets/site.js"></script>
-</head><body>
-<div class="lang"><a data-lang-switch aria-label="Switch language"></a></div>
-<header class="header"><div class="wrap"><div class="brand">Aliye Arıcan</div>
-  <nav class="menu">
-    <a href="/en/alarch/" data-page="/en/alarch">ALARCH</a>
-    <a href="/en/alart/" data-page="/en/alart">ALART</a>
-    <a href="/en/alog/"  data-page="/en/alog">ALOG</a>
-    <a href="/en/alo/"   data-page="/en/alo">ALO</a>
-  </nav>
-</div></header>
-<nav class="menu"><a href="/en/alarch/" data-page="/en/alarch">ALARCH</a><a href="/en/alart/" data-page="/en/alart">ALART</a><a href="/en/alog/" data-page="/en/alog">ALOG</a><a href="/en/alo/" data-page="/en/alo">ALO</a></nav>
-
-<main>
-  <section class="container hero rv" data-parallax="0.6">
-    <h1>ALARCH</h1>
-    <p class="note">Architecture selections — 3:2 visuals, crisp layout. Texts/images are placeholders.</p>
-  </section>
-
-  <section class="container">
-    <div class="grid">
-      <!-- 6 proje örneği -->
-      ${[1,2,3,4,5,6].map(i=>`
-      <article class="card rv"><a href="#">
-        <figure class="image"><img width="1200" height="800" loading="lazy" alt="Project ${i}"
-         src="data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'><rect width='1200' height='800' fill='%23e5e5e5'/><text x='50' y='120' font-size='64' fill='%23888'>${i}</text></svg>"></figure>
-        <h3>Project ${i}</h3><small>Type • 2025</small>
-      </a></article>
-      `).join('')}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/">
+  <title>Aliye Arıcan</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <div class="content">
+        <h1 id="js-title" class="h-title">…</h1>
+        <p id="js-sub" class="h-sub hide"></p>
+        <div id="js-rich" class="richtext hide"></div>
+        <div id="js-grid" class="grid hide"></div>
+        <div id="js-ad" class="ad hide"></div>
+      </div>
+      <aside class="rightmenu">
+        <div class="rm-brand" id="js-brand">AL</div>
+        <nav id="js-nav" class="rm-nav"></nav>
+        <div id="js-lang" class="rm-lang"></div>
+        <div class="h-note" id="js-note"></div>
+        <div id="js-quick" class="rm-quick"></div>
+      </aside>
     </div>
-  </section>
-</main>
-
-<footer class="footer"><div class="container">© 2025 Aliye Arıcan</div></footer>
-<script>
-  /* küçük şablon yerleştirme (saf HTML’de çalışsın diye) */
-  document.body.innerHTML = document.body.innerHTML.replace(/\$\{[^}]+\}/g, s=>{
-    try{return eval(s.slice(2,-1))}catch(e){return '';}
-  });
-</script>
-</body></html>
+  </div>
+  <script src="assets/site.js"></script>
+</body>
+</html>
