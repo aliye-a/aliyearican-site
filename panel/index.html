@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panel (Yerel)</title>
+  <link rel="stylesheet" href="/assets/site.css">
+  <style>
+    .p-wrap{max-width:980px;margin:24px auto;padding:0 16px}
+    .row{border:1px solid var(--line);padding:12px;margin-bottom:12px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    textarea,input{width:100%;padding:8px;border:1px solid var(--line)}
+    .gi{display:grid;grid-template-columns:110px 1fr 1fr 1fr 40px;gap:6px;align-items:center}
+    .small{font-size:12px;color:var(--muted)}
+    .btn{border:1px solid var(--fg);background:#fff;padding:8px 10px}
+  </style>
+</head>
+<body>
+  <div class="p-wrap">
+    <h1>Yerel Panel</h1>
+    <p class="small">Bu panel yalnızca yerel içerik hazırlamak içindir. Çıktıyı <code>assets/content.json</code> olarak repo’ya yükle.</p>
+
+    <div class="row">
+      <button class="btn" id="import">Import JSON</button>
+      <button class="btn" id="export">Export JSON</button>
+      <button class="btn" id="save">Kaydet (LocalStorage)</button>
+      <input type="file" id="fileImport" class="hide" accept="application/json">
+    </div>
+
+    <div id="app" class="row"></div>
+  </div>
+
+<script>
+const DEFAULT_JSON = {
+  "_site":{"brand":"AL","title":"Aliye Arıcan","note_en":"","note_tr":"","quick_links":[],"ad":{"enabled":false,"html":""}},
+  "en":{"alarch":{"title":"Architecture","subtitle":"","text":"","projects":[]},"alart":{"title":"Art","subtitle":"","text":"","projects":[]},"allog":{"title":"Log","subtitle":"","text":"","projects":[]},"alo":{"title":"Alo","subtitle":"Contact","text":"<p>Email: xxx@gmail.com</p>","projects":[]}},
+  "tr":{"alarch":{"title":"Mimarlık","subtitle":"Seçki","text":"","projects":[]},"alart":{"title":"Sanat","subtitle":"","text":"","projects":[]},"allog":{"title":"Günlük","subtitle":"Notlar","text":"","projects":[]},"alo":{"title":"Alo","subtitle":"İletişim","text":"<p>E-posta: xxx@gmail.com</p>","projects":[]}}
+};
+let state = JSON.parse(localStorage.getItem('AA_CONTENT')||JSON.stringify(DEFAULT_JSON));
+const app = document.getElementById('app');
+
+function ui(){
+  app.innerHTML = '';
+  app.appendChild(siteBox());
+  ['en','tr'].forEach(L=>{
+    ['alarch','alart','allog','alo'].forEach(sec=>{
+      app.appendChild(sectionBox(L, sec));
+    });
+  });
+}
+
+function siteBox(){
+  const div = document.createElement('div'); div.className='row';
+  div.innerHTML = `
+    <h2>Site</h2>
+    <div class="grid2">
+      <div><label>Brand</label><input id="brand" value="${esc(state._site.brand||'')}"></div>
+      <div><label>Title</label><input id="title" value="${esc(state._site.title||'')}"></div>
+      <div><label>Note EN</label><input id="note_en" value="${esc(state._site.note_en||'')}"></div>
+      <div><label>Note TR</label><input id="note_tr" value="${esc(state._site.note_tr||'')}"></div>
+    </div>
+    <label>Quick Links (JSON)</label>
+    <textarea id="ql" rows="3">${esc(JSON.stringify(state._site.quick_links||[]))}</textarea>
+    <label>Ad / Revenue (JSON)</label>
+    <textarea id="ad" rows="3">${esc(JSON.stringify(state._site.ad||{"enabled":false,"html":""}))}</textarea>
+    <div style="margin-top:10px">
+      <button class="btn" onclick="saveSite()">Güncelle</button>
+    </div>
+  `;
+  return div;
+}
+function saveSite(){
+  state._site.brand = val('#brand'); state._site.title = val('#title');
+  state._site.note_en = val('#note_en'); state._site.note_tr = val('#note_tr');
+  try{ state._site.quick_links = JSON.parse(val('#ql')||'[]'); }catch(e){ alert('Quick Links JSON hatalı'); }
+  try{ state._site.ad = JSON.parse(val('#ad')||'{"enabled":false}'); }catch(e){ alert('Ad JSON hatalı'); }
+  toast('Site güncellendi (henüz export etmedin).');
+}
+
+function sectionBox(L, sec){
+  const d = state[L][sec];
+  const div = document.createElement('div'); div.className='row';
+  div.innerHTML = `
+    <h3>${L.toUpperCase()} — ${sec.toUpperCase()}</h3>
+    <div class="grid2">
+      <div><label>Title</label><input id="${L}_${sec}_title" value="${esc(d.title||'')}"></div>
+      <div><label>Subtitle</label><input id="${L}_${sec}_sub" value="${esc(d.subtitle||'')}"></div>
+    </div>
+    <label>Text (HTML)</label>
+    <textarea id="${L}_${sec}_text" rows="5">${esc(d.text||'')}</textarea>
+
+    <h4>Projects / Gallery</h4>
+    <div id="${L}_${sec}_list"></div>
+    <div style="display:flex;gap:8px;align-items:center;margin-top:8px">
+      <button class="btn" onclick="addItem('${L}','${sec}','image')">+ image</button>
+      <button class="btn" onclick="addItem('${L}','${sec}','video')">+ video</button>
+      <input type="file" accept="image/*,video/*" onchange="fileToDataURL(event,'${L}','${sec}')" title="Dosyayı seç, otomatik base64 ekler">
+      <span class="small">Seçtiğin dosyayı otomatik <b>base64</b> olarak ekler.</span>
+    </div>
+    <div style="margin-top:8px"><button class="btn" onclick="saveSection('${L}','${sec}')">Bölümü Kaydet</button></div>
+  `;
+  setTimeout(()=>renderList(L,sec),0);
+  return div;
+}
+
+function renderList(L,sec){
+  const root = byId(`${L}_${sec}_list`); root.innerHTML='';
+  (state[L][sec].projects||[]).forEach((it,idx)=>{
+    const row = document.createElement('div'); row.className='gi';
+    row.innerHTML = `
+      <select onchange="chgType('${L}','${sec}',${idx},this.value)">
+        <option value="image" ${it.type!=='video'?'selected':''}>image</option>
+        <option value="video" ${it.type==='video'?'selected':''}>video</option>
+      </select>
+      <input value="${esc(it.src||'')}" onchange="chg('${L}','${sec}',${idx},'src',this.value)">
+      <input value="${esc(it.alt||'')}" placeholder="alt" onchange="chg('${L}','${sec}',${idx},'alt',this.value)">
+      <input value="${esc(it.caption||'')}" placeholder="caption" onchange="chg('${L}','${sec}',${idx},'caption',this.value)">
+      <button class="btn" onclick="delItem('${L}','${sec}',${idx})">✕</button>
+    `;
+    root.appendChild(row);
+  });
+}
+
+function addItem(L,sec,type){ (state[L][sec].projects=state[L][sec].projects||[]).push({type,src:"",alt:"",caption:""}); renderList(L,sec); }
+function delItem(L,sec,i){ state[L][sec].projects.splice(i,1); renderList(L,sec); }
+function chg(L,sec,i,k,v){ state[L][sec].projects[i][k]=v; }
+function chgType(L,sec,i,v){ state[L][sec].projects[i].type=v; }
+function saveSection(L,sec){
+  state[L][sec].title = val(`#${L}_${sec}_title`);
+  state[L][sec].subtitle = val(`#${L}_${sec}_sub`);
+  state[L][sec].text = val(`#${L}_${sec}_text`);
+  toast(`${L.toUpperCase()} / ${sec.toUpperCase()} kaydedildi.`);
+}
+function fileToDataURL(e,L,sec){
+  const f = e.target.files[0]; if(!f) return;
+  const rd = new FileReader();
+  rd.onload = () => { (state[L][sec].projects=state[L][sec].projects||[]).push({type:f.type.startsWith('video/')?'video':'image',src:rd.result,alt:"",caption:""}); renderList(L,sec); };
+  rd.readAsDataURL(f);
+}
+
+function val(sel){ const n=document.querySelector(sel); return n?n.value:''; }
+function byId(id){ return document.getElementById(id); }
+function esc(s){ return String(s).replace(/[&<>"']/g,m=>({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[m])); }
+function toast(t){ console.log(t); }
+
+document.getElementById('import').onclick = ()=> document.getElementById('fileImport').click();
+document.getElementById('fileImport').onchange = (e)=>{
+  const f = e.target.files[0]; if(!f) return;
+  const rd = new FileReader();
+  rd.onload = ()=>{ try{ state = JSON.parse(rd.result); localStorage.setItem('AA_CONTENT', JSON.stringify(state)); ui(); }catch(err){ alert('JSON okunamadı'); } };
+  rd.readAsText(f);
+};
+document.getElementById('export').onclick = ()=>{
+  const blob = new Blob([JSON.stringify(state,null,2)], {type:'application/json'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download='content.json'; a.click();
+};
+document.getElementById('save').onclick = ()=>{ localStorage.setItem('AA_CONTENT', JSON.stringify(state)); toast('LocalStorage kaydedildi'); };
+
+ui();
+</script>
+</body>
+</html>
