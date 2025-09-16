@@ -1,22 +1,20 @@
-{
-  "_site": {
-    "brand": "AL",
-    "title": "Aliye Arıcan",
-    "note_en": "",
-    "note_tr": "",
-    "quick_links": [{ "label": "Contact", "href": "#" }],
-    "ad": { "enabled": false, "html": "" }
+[
+  {
+    "type": "image",
+    "src": "data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'><rect width='1200' height='800' fill='%23e5e5e5'/><text x='50' y='120' font-size='64' fill='%23888'>1</text></svg>",
+    "alt": "Project 1",
+    "caption": "Type • 2025"
   },
-  "en": {
-    "alarch": { "title": "Architecture", "subtitle": "Selected works", "text": "", "projects": [] },
-    "alart":  { "title": "Art",          "subtitle": "",               "text": "", "projects": [] },
-    "allog":  { "title": "Log",          "subtitle": "",               "text": "", "projects": [] },
-    "alo":    { "title": "Alo",          "subtitle": "Contact",        "text": "<p>Email: xxx@gmail.com</p>", "projects": [] }
+  {
+    "type": "image",
+    "src": "data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'><rect width='1200' height='800' fill='%23e5e5e5'/><text x='50' y='120' font-size='64' fill='%23888'>2</text></svg>",
+    "alt": "Project 2",
+    "caption": "Type • 2025"
   },
-  "tr": {
-    "alarch": { "title": "Mimarlık", "subtitle": "Seçki", "text": "", "projects": [] },
-    "alart":  { "title": "Sanat",    "subtitle": "",      "text": "", "projects": [] },
-    "allog":  { "title": "Günlük",   "subtitle": "Notlar","text": "", "projects": [] },
-    "alo":    { "title": "Alo",      "subtitle": "İletişim","text": "<p>E-posta: xxx@gmail.com</p>", "projects": [] }
+  {
+    "type": "image",
+    "src": "data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'><rect width='1200' height='800' fill='%23e5e5e5'/><text x='50' y='120' font-size='64' fill='%23888'>3</text></svg>",
+    "alt": "Project 3",
+    "caption": "Type • 2025"
   }
-}
+]
